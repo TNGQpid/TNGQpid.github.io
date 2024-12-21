@@ -63,13 +63,28 @@
             display: flex;
             justify-content: space-between;
             flex-wrap: nowrap; /* Prevent wrapping */
-            margin-top: 1em; /* Add space between header and items */
+            margin-top: 0.5em; /* Add space between header and items */
         }
         
         .portfolio-item {
-            width: 30%; /* Ensure all items fit in one row */
-            flex-shrink: 0; /* Prevent shrinking of items */
+            background: #fff;
+            padding: 1em;
+            margin: 1em;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%; /* Ensure 3 items fit horizontally */
         }
+        
+        .portfolio h2 {
+            width: 100%; /* Ensures header takes full width */
+            margin-bottom: 1em;
+        }
+        
+        .portfolio-item img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
         .blog {
             display: flex;
             flex-wrap: wrap;
@@ -83,10 +98,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 30%;
         }
-        .portfolio-item img, .blog-post img {
+        .blog-post img {
             max-width: 100%;
             border-radius: 5px;
         }
+
+        .important-header { 
+
+        text-align: center; 
+
+        } 
+
         .button-blue {
             background-color: #007bff;
             color: white;
@@ -137,10 +159,8 @@
             <p>Hello! I am a passionate astrophysics, physics, and data science triple major with minors in Math and German. My academic journey has allowed me to delve deep into the mysteries of the universe while honing my skills in data analysis and computational methods. I have a unique interest in using data science techniques to uncover patterns and insights in astronomical data.</p>
             <p>In addition to my academic pursuits, I enjoy learning languages and exploring new cultures, which led me to minor in German. I believe that a well-rounded education and diverse experiences contribute to a richer understanding of the world.</p>
         </section>
-        
+        <h2 class="important-header">Portfolio</h2>
         <section id="portfolio" class="section portfolio">
-            <h2>Portfolio</h2>
-            <br>
             <div class="portfolio-item">
                 <h3>Website: Genesis ex nihilo</h3>
                 <img src="static/Genesis.png" alt="Project 1">

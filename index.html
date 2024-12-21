@@ -8,7 +8,6 @@
         :root {
             --bg-color: #f4f4f4;
             --text-color: #333;
-            --header-bg: url('static/spiral.png');
         }
 
         body {
@@ -20,13 +19,13 @@
             color: var(--text-color);
         }
 
-        body.dark-mode {
+        .dark-mode {
             --bg-color: #333;
             --text-color: #f4f4f4;
         }
 
         header {
-            background-image: var(--header-bg);
+            background-image: url('static/spiral.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -70,45 +69,53 @@
             margin-bottom: 1em;
         }
 
-        .blog {
+        .portfolio {
             position: relative;
-            width: 80%;
-            margin: 20px auto;
+            width: 100%;
+            height: 400px;
             overflow: hidden;
         }
 
-        .blog-slide {
+        .portfolio-slide {
             display: none;
-            width: 100%;
+            text-align: center;
         }
 
-        .blog-slide.active {
-            display: block;
-        }
-
-        .blog-slide img {
+        .portfolio-slide img {
             max-width: 100%;
             border-radius: 5px;
         }
 
-        .blog-nav {
+        .portfolio-slide.active {
+            display: block;
+        }
+
+        .carousel-controls {
             position: absolute;
             top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
             transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
+        }
+
+        .carousel-controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
             border: none;
-            font-size: 1.5em;
+            padding: 10px 20px;
             cursor: pointer;
-            padding: 10px;
         }
 
-        .blog-nav.prev {
-            left: 10px;
+        .carousel-controls button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
         }
 
-        .blog-nav.next {
-            right: 10px;
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background: #333;
+            color: #fff;
         }
 
         #darkModeToggle {
@@ -118,22 +125,13 @@
             color: white;
             border: none;
             border-radius: 5px;
-            display: block;
-            margin: 10px auto;
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background: #333;
-            color: #fff;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Data Science and Astrophysics Enthusiast</h1>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
     </header>
     <nav>
         <a href="#about">About Me</a>
@@ -142,66 +140,69 @@
         <a href="#blog">Blog</a>
     </nav>
     <div class="container">
-        <button id="darkModeToggle">Toggle Dark Mode</button>
-
         <section id="about" class="section about">
             <h2>About Me</h2>
             <p>Hello! I am a passionate astrophysics, physics, and data science triple major...</p>
         </section>
-
+        
         <section id="portfolio" class="section portfolio">
             <h2>Portfolio</h2>
-            <!-- Portfolio Items Here -->
+            <div class="portfolio-slide active">
+                <h3>Website: Genesis ex nihilo</h3>
+                <img src="static/Genesis.png" alt="Project 1">
+                <p>In order to have a place to document my findings...</p>
+            </div>
+            <div class="portfolio-slide">
+                <h3>Cosmology: Dark Matter Overdensities</h3>
+                <img src="static/HaloMap.png" alt="Project 2">
+                <p>While collaborating with a series of graduate...</p>
+            </div>
+            <div class="portfolio-slide">
+                <h3>Artificial Intelligence: Chatbot Training</h3>
+                <img src="static/project3.jpg" alt="Project 3">
+                <p>To leverage a sharp balance of artificial intelligence...</p>
+            </div>
+            <div class="carousel-controls">
+                <button id="prevSlide">&lt;</button>
+                <button id="nextSlide">&gt;</button>
+            </div>
         </section>
-
+        
         <section id="contact" class="section contact">
             <h2>Contact</h2>
-            <p>Email: <a href="mailto:erich.manter@gmail.com">erich.manter@gmail.com</a></p>
+            <p>If you have any questions...</p>
         </section>
-
+        
         <section id="blog" class="section blog">
             <h2>Blog</h2>
-            <div class="blog-slide active">
-                <h3>Stunning JWST Galaxy Poses Questions About Galaxy Formation</h3>
+            <div class="blog-post">
+                <h3>Stunning JWST Galaxy...</h3>
                 <img src="static/Blog1.png" alt="Blog 1">
-                <p>After significant spectral analysis, JWST's NIRCAM sighted...</p>
+                <p>After significant spectral analysis...</p>
             </div>
-            <div class="blog-slide">
-                <h3>German Club Presidency</h3>
-                <img src="static/Blog2.png" alt="Blog 2">
-                <p>I’m pleased to announce that I will once again...</p>
-            </div>
-            <div class="blog-slide">
-                <h3>Project: Advancement</h3>
-                <img src="static/Blog3.png" alt="Blog 3">
-                <p>I have the honor to collaborate with Professors...</p>
-            </div>
-            <button class="blog-nav prev">&lt;</button>
-            <button class="blog-nav next">&gt;</button>
         </section>
     </div>
     <footer>
         <p>&copy; 2024 Astrophysics and Data Science Enthusiast. All rights reserved.</p>
     </footer>
-
     <script>
         // Dark Mode Toggle
-        const toggle = document.getElementById('darkModeToggle');
-        toggle.addEventListener('click', () => {
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
         });
 
-        // Blog Slideshow
-        const slides = document.querySelectorAll('.blog-slide');
+        // Portfolio Slideshow
+        const slides = document.querySelectorAll('.portfolio-slide');
         let currentSlide = 0;
 
-        document.querySelector('.blog-nav.next').addEventListener('click', () => {
+        document.getElementById('nextSlide').addEventListener('click', () => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         });
 
-        document.querySelector('.blog-nav.prev').addEventListener('click', () => {
+        document.getElementById('prevSlide').addEventListener('click', () => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');

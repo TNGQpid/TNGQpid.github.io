@@ -3,178 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrophysics and Data Science Enthusiast</title>
+    <title>Portfolio with Interactive Features</title>
     <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+        }
+
         body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: Arial, sans-serif;
-            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
-            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .dark-mode {
+            --bg-color: #333;
+            --text-color: #f4f4f4;
         }
 
         header {
-            background-image: url('static/spiral.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            padding: 20px;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #007bff;
             color: white;
         }
-        header h1 {
-            font-size: 2.5em;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #808080;
-        }
-        nav a {
-            color: #fff;
-            padding: 0.5em 1em;
+
+        header a {
+            color: white;
             text-decoration: none;
+            margin: 0 10px;
         }
-        nav a:hover {
-            background: #555;
-        }
-        .container {
+
+        .carousel {
+            position: relative;
             width: 80%;
-            margin: auto;
+            margin: 20px auto;
             overflow: hidden;
+            border-radius: 10px;
         }
-        .section {
-            padding: 2em 0;
+
+        .carousel-item {
+            display: none;
+            width: 100%;
         }
-        .section h2 {
-            text-align: center;
-            margin-bottom: 1em;
+
+        .carousel-item img {
+            width: 100%;
+            display: block;
         }
-        .about, .contact {
-            background: #fff;
-            padding: 2em;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        .carousel-item.active {
+            display: block;
         }
-        .portfolio, .blog {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2em;
+            cursor: pointer;
+            padding: 5px 10px;
         }
-        .portfolio-item, .blog-post {
-            background: #fff;
-            padding: 1em;
-            margin: 1em;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 30%;
+
+        .carousel-btn.prev {
+            left: 10px;
         }
-        .portfolio-item img, .blog-post img {
-            max-width: 100%;
-            border-radius: 5px;
+
+        .carousel-btn.next {
+            right: 10px;
         }
-        .button-blue {
+
+        #darkModeToggle {
+            cursor: pointer;
+            padding: 10px 20px;
             background-color: #007bff;
             color: white;
             border: none;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            border-radius: 5px;
         }
-        .button-red {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+
+        .portfolio-item {
+            margin: 20px 0;
         }
-        footer {
-            text-align: center;
-            padding: 1em 0;
-            background: #333;
-            color: #fff;
+
+        .portfolio-item img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        .portfolio-item p {
+            margin: 10px 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Data Science and Astrophysics Enthusiast</h1>
+        <nav>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#section2">Smooth Scroll</a>
+            <a href="#section3">Slideshow</a>
+        </nav>
+        <button id="darkModeToggle">Toggle Dark Mode</button>
     </header>
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-        <a href="#blog">Blog</a>
-    </nav>
-    <div class="container">
-        <section id="about" class="section about">
-            <h2>About Me</h2>
-            <p>Hello! I am a passionate astrophysics, physics, and data science triple major with minors in Math and German. My academic journey has allowed me to delve deep into the mysteries of the universe while honing my skills in data analysis and computational methods. I have a unique interest in using data science techniques to uncover patterns and insights in astronomical data.</p>
-            <p>In addition to my academic pursuits, I enjoy learning languages and exploring new cultures, which led me to minor in German. I believe that a well-rounded education and diverse experiences contribute to a richer understanding of the world.</p>
-        </section>
-        
-        <section id="portfolio" class="section portfolio">
-            <h2>Portfolio</h2>
-            <div class="portfolio-item">
-                <h3>Website: Genesis ex nihilo</h3>
-                <img src="static/Genesis.png" alt="Project 1">
-                <p>In order to have a place to document my findings and express analytical strategies and techniques, I created this entire website by hand from scratch. I included knowledge of both key data science and astrophysical concepts, such as a working, animated model of the infamous double pendulum, and various maps and graphs using matplotlib and geopandas.</p>
+
+    <section id="portfolio" style="padding: 20px;">
+        <h1>Portfolio</h1>
+        <div class="portfolio-item">
+            <img src="static/Genesis.png" alt="Genesis">
+            <p>Project 1: Genesis - A representation of cosmic structures.</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="static/HaloMap.png" alt="Dark Matter Overdensities">
+            <p>Project 2: Dark Matter Overdensities - Visualizing dark matter distributions.</p>
+        </div>
+        <div class="portfolio-item">
+            <img src="static/project3.jpg" alt="Chatbot">
+            <p>Project 3: Chatbot - An intelligent conversational assistant.</p>
+        </div>
+    </section>
+
+    <section id="section2" style="height: 100vh; padding: 20px; background-color: #e9ecef;">
+        <h1>Smooth Scroll Section</h1>
+    </section>
+
+    <section id="section3" style="padding: 20px;">
+        <h1>Image Slideshow</h1>
+        <div class="carousel">
+            <div class="carousel-item active">
+                <img src="static/Genesis.png" alt="Genesis">
             </div>
-            <div class="portfolio-item">
-                <h3>Cosmology: Dark Matter Overdensities</h3>
-                <img src="static/HaloMap.png" alt="Project 2">
-                <p>While collaborating with a series of graduate, undergraduate, and professional peers, a groundbreaking model using PyTorch's machine learning was created to map and express linear overdensities in dark matter throughout the universe. Translationally and rotationally invariant features were then added to account for orientation details.</p>
+            <div class="carousel-item">
+                <img src="static/HaloMap.png" alt="Dark Matter Overdensities">
             </div>
-            <div class="portfolio-item">
-                <h3>Artificial Intelligence: Chatbot Training</h3>
-                <img src="static/project3.jpg" alt="Project 3">
-                <p>To leverage a sharp balance of artificial intelligence and coding background, a chatbot was created, personally trained, and then integrated into this website.</p>
+            <div class="carousel-item">
+                <img src="static/project3.jpg" alt="Chatbot">
             </div>
-        </section>
-        
-        <section id="contact" class="section contact">
-            <h2>Contact</h2>
-            <p>If you have any questions or would like to connect, feel free to reach out to me via the following methods:</p>
-            <ul>
-                <li>Email: <a href="mailto:erich.manter@gmail.com">erich.manter@gmail.com</a></li>
-                <li>Handshake: <a href="https://app.joinhandshake.com/profiles/41667187">Handshake Profile</a></li>
-                <li>LinkedIn: <a href="https://www.linkedin.com/in/erich-manter-a1aa84311">LinkedIn Profile</a></li>
-            </ul>
-        </section>
-        
-        <section id="blog" class="section blog">
-            <h2>Blog</h2>
-            <div class="blog-post">
-                <h3>Stunning JWST Galaxy Poses Questions About Galaxy Formation</h3>
-                <img src="static/Blog1.png" alt="Blog 1">
-                <p>After significant spectral analysis, JWST's NIRCAM sighted a galaxy (JWST-7329) at a redshift of 3.2 whose stars formed at a redshift of 11 when insufficient local dark matter mass was present to allow such structures, once again raising questions about the current understanding of galaxy formation.</p>
-            </div>
-            <div class="blog-post">
-                <h3>German Club Presidency</h3>
-                <img src="static/Blog2.png" alt="Blog 2">
-                <p>I’m pleased to announce that I will once again be the president of German Club located at the University of Wisconsin-Madison for the 2024-2025 academic year.</p>
-            </div>
-            <div class="blog-post">
-                <h3>Project: Advancement</h3>
-                <img src="static/Blog3.png" alt="Blog 3">
-                <p>I have the honor to collaborate with Professors Elena D'Onghia and Nick Stone at of the University of Wisconsin-Madison on a project that will investigate galactic dynamics with relevance to barred galaxies.</p>
-            </div>
-        </section>
-    </div>
-    <footer>
-        <p>&copy; 2024 Astrophysics and Data Science Enthusiast. All rights reserved.</p>
-    </footer>
+            <button class="carousel-btn prev">&lt;</button>
+            <button class="carousel-btn next">&gt;</button>
+        </div>
+    </section>
+
+    <script>
+        // Dark Mode Toggle
+        const toggle = document.getElementById('darkModeToggle');
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        // Image Carousel
+        const items = document.querySelectorAll('.carousel-item');
+        let currentItem = 0;
+
+        document.querySelector('.carousel-btn.next').addEventListener('click', () => {
+            items[currentItem].classList.remove('active');
+            currentItem = (currentItem + 1) % items.length;
+            items[currentItem].classList.add('active');
+        });
+
+        document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
+            items[currentItem].classList.remove('active');
+            currentItem = (currentItem - 1 + items.length) % items.length;
+            items[currentItem].classList.add('active');
+        });
+    </script>
 </body>
 </html>

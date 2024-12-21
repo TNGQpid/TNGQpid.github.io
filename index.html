@@ -86,11 +86,14 @@
         }
         
         .about, .contact {
-            background-color: var(--card-bg-color);
+            /* background-color: var(--card-bg-color);
+            box-shadow: var(--box-shadow); */
             color: var(--text-color);
             border-radius: 5px;
-            box-shadow: var(--box-shadow);
             padding: 2em;
+            background-color: #4197d0;
+            background-image: linear-gradient(43deg, #4197d0 0%, #C850C0 46%, #FFCC70 100%);
+
         }
         
         .portfolio-item, .blog-post {
@@ -115,13 +118,25 @@
             border-radius: 5px;
         }
 
-        .portfolio-container, .blog-container {
-            border: 2px solid var(--background-color); /* Blue border */
+        .portfolio-container {
+            border: 2px solid var(--background-color);
             border-radius: 8px;        /* Rounded corners */
             padding: 20px;             /* Inner spacing */
-            background-color: var(--container-color);    /* White background */
-            box-shadow: var(--box-shadow); /* Subtle shadow */
+            /*background-color: var(--container-color);
+            box-shadow: var(--box-shadow); */
             margin: 20px 0;            /* Spacing above and below */
+            background-color: #8EC5FC;
+            background-image: linear-gradient(75deg, #8EC5FC 0%, #E0C3FC 100%);
+        }
+
+        .blog-container {
+            border: 2px solid var(--background-color);
+            border-radius: 8px;
+            padding: 20px;
+            /* box-shadow: var(--box-shadow); */
+            margin: 20px 0;
+            background-color: #8EC5FC;
+            background-image: linear-gradient(75deg, #E0C3FC 0%, #8EC5FC 100%);
         }
 
         .toggle-button {

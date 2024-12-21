@@ -18,6 +18,7 @@
             --container-color: #fff;
             --box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             --footer-bg-color: #808080;
+            --entire-container: rgb(190, 190, 190);
         }
     
         body {
@@ -41,6 +42,7 @@
             --container-color: #444;
             --box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             --footer-bg-color: #333;
+            --entire-container: darkslategray;
         }
     
         header {
@@ -54,9 +56,12 @@
         }
     
         .container {
-            width: 80%;
+            width: 90%;
             margin: auto;
             overflow: hidden;
+            background-color: var(--entire-container); 
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
         }
 
         .section {
@@ -85,7 +90,7 @@
             background-color: var(--hover-color);
         }
         
-        .about, .contact {
+        .about {
             /* background-color: var(--card-bg-color);
             box-shadow: var(--box-shadow); */
             font-family: 'Lucida Console', Courier, monospace;
@@ -94,7 +99,18 @@
             padding: 2em;
             background-color: #4197d0;
             background-image: linear-gradient(43deg, #4197d0 0%, #C850C0 46%, #FFCC70 100%);
+            margin-top: 50px;
+        }
 
+        .contact {
+            /* background-color: var(--card-bg-color);
+            box-shadow: var(--box-shadow); */
+            font-family: 'Lucida Console', Courier, monospace;
+            color: var(--text-color);
+            border-radius: 5px;
+            padding: 2em;
+            background-color: #4197d0;
+            background-image: linear-gradient(43deg, #4197d0 0%, #C850C0 46%, #FFCC70 100%);
         }
         
         .portfolio-item, .blog-post {
@@ -128,6 +144,8 @@
             margin: 20px 0;            /* Spacing above and below */
             background-color: #8EC5FC;
             background-image: linear-gradient(75deg, #8EC5FC 0%, #E0C3FC 100%);
+            max-width: 90%;
+            margin-inline: auto;
         }
 
         .blog-container {
@@ -138,6 +156,8 @@
             margin: 20px 0;
             background-color: #8EC5FC;
             background-image: linear-gradient(75deg, #E0C3FC 0%, #8EC5FC 100%);
+            max-width: 90%;
+            margin-inline: auto;
         }
 
         .toggle-button {

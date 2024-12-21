@@ -1,147 +1,152 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of an astrophysics and data science enthusiast, showcasing projects, a blog, and more.">
+    <meta name="author" content="Erich Manter">
     <title>Astrophysics and Data Science Enthusiast</title>
     <style>
+        :root {
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --nav-bg-color: #808080;
+            --card-bg-color: #fff;
+            --button-bg-color: #333;
+            --button-text-color: #f4f4f4;
+            --hover-color: #555;
+            --container-color: #fff;
+            --box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background: #f4f4f4;
-            color: #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-
+    
+        .dark-mode {
+            --background-color: #333;
+            --text-color: #f4f4f4;
+            --nav-bg-color: #555;
+            --card-bg-color: #444;
+            --button-bg-color: #f4f4f4;
+            --button-text-color: #333;
+            --hover-color: #777;
+            --container-color: #444;
+            --box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+    
         header {
-            background-image: url('static/spiral.png');
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/spiral.png');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
             padding: 20px;
             text-align: center;
-            color: white;
+            color: var(--text-color);
         }
-        header h1 {
-            font-size: 2.5em;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background: #808080;
-        }
-        nav a {
-            color: #fff;
-            padding: 0.5em 1em;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background: #555;
-        }
+    
         .container {
             width: 80%;
             margin: auto;
             overflow: hidden;
         }
+
         .section {
             padding: 2em 0;
         }
+
         .section h2 {
             text-align: center;
             margin-bottom: 1em;
         }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--nav-bg-color);
+            color: var(--text-color);
+        }
+    
+        nav a {
+            color: var(--text-color);
+            padding: 0.5em 1em;
+            text-decoration: none;
+        }
+    
+        nav a:hover {
+            background-color: var(--hover-color);
+        }
+        
         .about, .contact {
-            background: #fff;
-            padding: 2em;
+            background-color: var(--card-bg-color);
+            color: var(--text-color);
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .portfolio {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: nowrap; /* Prevent wrapping */
-            margin-top: 0.5em; /* Add space between header and items */
+            box-shadow: var(--box-shadow);
         }
         
-        .portfolio-item {
-            background: #fff;
-            padding: 1em;
-            margin: 1em;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 30%; /* Ensure 3 items fit horizontally */
-        }
-        
-        .portfolio h2 {
-            width: 100%; /* Ensures header takes full width */
-            margin-bottom: 1em;
-        }
-        
-        .portfolio-item img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-
-        .blog {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-        .blog-post {
-            background: #fff;
-            padding: 1em;
-            margin: 1em;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        .portfolio-item, .blog-post {
             width: 30%;
+            background-color: var(--card-bg-color);
+            color: var(--text-color);
+            padding: 1em;
+            margin: 1em 0.5em;
+            border-radius: 5px;
+            box-shadow: var(--box-shadow);
         }
-        .blog-post img {
+
+        .blog, .portfolio {
+            display: flex;
+            flex-wrap: nowrap;
+            /* justify-content: space-between; */
+            margin-top: 0; /* Avoid extra margin space */
+        }
+
+        .blog-post img, .portfolio-item img {
             max-width: 100%;
             border-radius: 5px;
         }
 
-        .important-header { 
-
-        text-align: center; 
-
-        } 
-
-        .button-blue {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+        .portfolio-container, .blog-container {
+            border: 2px solid var(--background-color); /* Blue border */
+            border-radius: 8px;        /* Rounded corners */
+            padding: 20px;             /* Inner spacing */
+            background-color: var(--container-color);    /* White background */
+            box-shadow: var(--box-shadow); /* Subtle shadow */
+            margin: 20px 0;            /* Spacing above and below */
         }
-        .button-red {
-            background-color: red;
-            color: white;
+
+        .toggle-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
             border: none;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+    
+        .toggle-button:hover {
+            opacity: 0.8;
+        }
+    
         footer {
             text-align: center;
             padding: 1em 0;
-            background: #333;
-            color: #fff;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
     </style>
+    
 </head>
 <body>
     <header>
@@ -156,28 +161,33 @@
     <div class="container">
         <section id="about" class="section about">
             <h2>About Me</h2>
-            <p>Hello! I am a passionate astrophysics, physics, and data science triple major with minors in Math and German. My academic journey has allowed me to delve deep into the mysteries of the universe while honing my skills in data analysis and computational methods. I have a unique interest in using data science techniques to uncover patterns and insights in astronomical data.</p>
-            <p>In addition to my academic pursuits, I enjoy learning languages and exploring new cultures, which led me to minor in German. I believe that a well-rounded education and diverse experiences contribute to a richer understanding of the world.</p>
+            <p>Hello! I am a passionate astrophysics, physics, and data science triple major with minors in Math and German. My academic journey has allowed me to delve deep into the mysteries of the universe while honing my skills in data analysis and computational methods. I have a unique interest in using data science techniques to uncover patterns and insights in astronomical data.
+
+                In addition to my academic pursuits, I enjoy learning languages and exploring new cultures, which led me to minor in German. I believe that a well-rounded education and diverse experiences contribute to a richer understanding of the world.</p>
         </section>
-        <h2 class="important-header">Portfolio</h2>
-        <section id="portfolio" class="section portfolio">
-            <div class="portfolio-item">
-                <h3>Website: Genesis ex nihilo</h3>
-                <img src="static/Genesis.png" alt="Project 1">
-                <p>In order to have a place to document my findings and express analytical strategies and techniques, I created this entire website by hand from scratch. I included knowledge of both key data science and astrophysical concepts, such as a working, animated model of the infamous double pendulum, and various maps and graphs using matplotlib and geopandas.</p>
-            </div>
-            <div class="portfolio-item">
-                <h3>Cosmology: Dark Matter Overdensities</h3>
-                <img src="static/HaloMap.png" alt="Project 2">
-                <p>While collaborating with a series of graduate, undergraduate, and professional peers, a groundbreaking model using PyTorch's machine learning was created to map and express linear overdensities in dark matter throughout the universe. Translationally and rotationally invariant features were then added to account for orientation details.</p>
-            </div>
-            <div class="portfolio-item">
-                <h3>Artificial Intelligence: Chatbot Training</h3>
-                <img src="static/project3.jpg" alt="Project 3">
-                <p>To leverage a sharp balance of artificial intelligence and coding background, a chatbot was created, personally trained, and then integrated into this website.</p>
+        <section id="portfolio" class="section">
+            <div class = "portfolio-container">
+                <h2 class="portfolio-header">Portfolio</h2>
+                <div class="portfolio">
+                    <!-- Portfolio content -->
+                    <div class="portfolio-item">
+                        <h3>Website: Genesis ex nihilo</h3>
+                        <img src="static/Genesis.png" alt="Project 1">
+                        <p>In order to have a place to document my findings and express analytical strategies and techniques, I created this entire website by hand from scratch. I included knowledge of both key data science and astrophysical concepts, such as a working, animated model of the infamous double pendulum, and various maps and graphs using matplotlib and geopandas.</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <h3>Cosmology: Dark Matter Overdensities</h3>
+                        <img src="static/HaloMap.png" alt="Project 2">
+                        <p>While collaborating with a series of graduate, undergraduate, and professional peers, a groundbreaking model using PyTorch's machine learning was created to map and express linear overdensities in dark matter throughout the universe. Translationally and rotationally invariant features were then added to account for orientation details.</p>
+                    </div>
+                    <div class="portfolio-item">
+                        <h3>Artificial Intelligence: Chatbot Training</h3>
+                        <img src="static/project3.jpg" alt="Project 3">
+                        <p>To leverage a sharp balance of artificial intelligence and coding background, a chatbot was created, personally trained, and then integrated into this website.</p>
+                    </div>
+                </div>
             </div>
         </section>
-        
         <section id="contact" class="section contact">
             <h2>Contact</h2>
             <p>If you have any questions or would like to connect, feel free to reach out to me via the following methods:</p>
@@ -187,29 +197,37 @@
                 <li>LinkedIn: <a href="https://www.linkedin.com/in/erich-manter-a1aa84311">LinkedIn Profile</a></li>
             </ul>
         </section>
-        
-        <section id="blog" class="section blog">
-            <h2>Blog</h2>
-            <br>
-            <div class="blog-post">
-                <h3>Stunning JWST Galaxy Poses Questions About Galaxy Formation</h3>
-                <img src="static/Blog1.png" alt="Blog 1">
-                <p>After significant spectral analysis, JWST's NIRCAM sighted a galaxy (JWST-7329) at a redshift of 3.2 whose stars formed at a redshift of 11 when insufficient local dark matter mass was present to allow such structures, once again raising questions about the current understanding of galaxy formation.</p>
-            </div>
-            <div class="blog-post">
-                <h3>German Club Presidency</h3>
-                <img src="static/Blog2.png" alt="Blog 2">
-                <p>I’m pleased to announce that I will once again be the president of German Club located at the University of Wisconsin-Madison for the 2024-2025 academic year.</p>
-            </div>
-            <div class="blog-post">
-                <h3>Project: Advancement</h3>
-                <img src="static/Blog3.png" alt="Blog 3">
-                <p>I have the honor to collaborate with Professors Elena D'Onghia and Nick Stone at of the University of Wisconsin-Madison on a project that will investigate galactic dynamics with relevance to barred galaxies.</p>
+        <section id="blog" class="section">
+            <div class = "blog-container">
+                <h2 class = "blog-header">Blog</h2>
+                <div class = "blog">
+                    <div class="blog-post">
+                        <h3>Stunning JWST Galaxy</h3>
+                        <img src="static/Blog1.png" alt="Blog 1">
+                        <p>After significant spectral analysis, JWST's NIRCAM sighted a galaxy (JWST-7329) at a redshift of 3.2 whose stars formed at a redshift of 11 when insufficient local dark matter mass was present to allow such structures, once again raising questions about the current understanding of galaxy formation.</p>
+                    </div>
+                    <div class="blog-post">
+                        <h3>German Club Presidency</h3>
+                        <img src="static/Blog2.png" alt="Blog 2">
+                        <p>I’m pleased to announce that I will once again be the president of German Club located at the University of Wisconsin-Madison for the 2024-2025 academic year.</p>
+                    </div>
+                    <div class="blog-post">
+                        <h3>Project: Advancement</h3>
+                        <img src="static/Blog3.png" alt="Blog 3">
+                        <p>I have the honor to collaborate with Professors Elena D'Onghia and Nick Stone at of the University of Wisconsin-Madison on a project that will investigate galactic dynamics with relevance to barred galaxies.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
+    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     <footer>
         <p>&copy; 2024 Astrophysics and Data Science Enthusiast. All rights reserved.</p>
     </footer>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>

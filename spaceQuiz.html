@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrophysics Quiz</title>
+    <style>
+        /* Space-themed background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            background: radial-gradient(circle, #1a1a3b, #000);
+            overflow: auto;
+        }
+
+        /* Stars animation */
+        .stars {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow: 0px 0px 2px white;
+            animation: twinkling 2s infinite ease-in-out;
+            border-radius: 50%;
+        }
+
+        @keyframes twinkling {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Quiz container styling */
+        .quiz-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .quiz-container h1 {
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin: 20px 0;
+        }
+
+        .answers button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .answers button:hover {
+            background-color: #45a049;
+        }
+
+        .answers button:disabled {
+            cursor: not-allowed;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+            /* Add animated stars */
+        @keyframes moveStars {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-100vh);
+        }
+        }
+
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .stars {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            animation: moveStars 10s linear infinite;
+        }
+
+        .stars:nth-child(odd) {
+            animation-duration: 12s;
+        }
+
+        .stars:nth-child(even) {
+            animation-duration: 8s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background with stars -->
+    <div class="stars-container">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+
+    <div class="quiz-container">
+        <h1>Astrophysics Quiz: Q1</h1>
+        <div id="question-1" class="question">
+            <div class="question">What is the speed of light in a vacuum?</div>
+            <div class="answers">
+                <button onclick="checkAnswer(this, false, '1')">100,000 km/s</button>
+                <button onclick="checkAnswer(this, false, '1')">200,000 km/s</button>
+                <button onclick="checkAnswer(this, true, '1')">300,000 km/s</button>
+                <button onclick="checkAnswer(this, false, '1')">400,000 km/s</button>
+            </div>
+            <div id="result-1" class="result"></div>
+        </div>
+    </div>
+    <div class="quiz-container">
+        <h1>Astrophysics Quiz: Q2</h1>
+        <div id="question-2" class="question">
+            <div class="question">What is the approximate age of the universe?</div>
+            <div class="answers">
+                <button onclick="checkAnswer(this, false, '2')">12 billion years</button>
+                <button onclick="checkAnswer(this, true, '2')">13.8 billion years</button>
+                <button onclick="checkAnswer(this, false, '2')">10 billion years</button>
+                <button onclick="checkAnswer(this, false, '2')">16.4 billion years</button>
+            </div>
+            <div id="result-2" class="result"></div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h1>Astrophysics Quiz: Q3</h1>
+        <div id="question-3" class="question">
+            <div class="question">What are the energy levels of a (1D) quantum oscillator?</div>
+            <div class="answers">
+                <button onclick="checkAnswer(this, false, '3')">h * omega * n</button>
+                <button onclick="checkAnswer(this, true, '3')">hbar * omega * (n + 1/2) </button>
+                <button onclick="checkAnswer(this, false, '3')">h * omega * n/2</button>
+                <button onclick="checkAnswer(this, false, '3')">hbar * omega * (n/2 + 1)</button>
+            </div>
+        </div>
+        <div id="result-3" class="result"></div>
+    </div>
+
+    <div class="quiz-container">
+        <h1>Astrophysics Quiz: Q4</h1>
+        <div id="question-4" class="question">
+            <div class="question">Which has been observed but never formed in a lab?</div>
+            <div class="answers">
+                <button onclick="checkAnswer(this, false, '4')">Graviton</button>
+                <button onclick="checkAnswer(this, false, '4')">W-Boson</button>
+                <button onclick="checkAnswer(this, false, '4')">Dark Energy</button>
+                <button onclick="checkAnswer(this, true, '4')">Dark Matter</button>
+            </div>
+        </div>
+        <div id="result-4" class="result"></div>
+    </div>
+
+    <div class="quiz-container">
+        <h1>Astrophysics Quiz: Q5</h1>
+        <div id="question-5" class="question">
+            <div class="question">Which of the following is <b>always</b> an early type galaxy?</div>
+            <div class="answers">
+                <button onclick="checkAnswer(this, true, '5')">Ellipitcal</button>
+                <button onclick="checkAnswer(this, false, '5')">Dwarf</button>
+                <button onclick="checkAnswer(this, false, '5')">Spiral</button>
+                <button onclick="checkAnswer(this, false, '5')">Lenticular</button>
+            </div>
+        </div>
+        <div id="result-5" class="result"></div>
+    </div>
+
+    <script>
+        function checkAnswer(button, isCorrect, questionId) {
+            // Get the result element
+            const resultElement = document.getElementById(`result-${questionId}`);
+            
+            // Get all buttons for this question
+            const questionBlock = document.getElementById(`question-${questionId}`);
+            const buttons = questionBlock.querySelectorAll(".answers button");
+
+            // Show result
+            if (isCorrect) {
+                resultElement.textContent = "Correct! Well done.";
+            } else {
+                if (questionId === '1') {
+                    resultElement.textContent = "Oops! That's incorrect. The correct answer is 300,000 km/s.";
+                } else if (questionId === '2') {
+                    resultElement.textContent = "Oops, not quite! The correct answer is 13.8 billion years.";
+                } else if (questionId === '3') {
+                    resultElement.textContent = "Oops! That's incorrect. The correct answer is hbar * omega * (n + 1/2).";
+                } else if (questionId === '4') {
+                    resultElement.textContent = "Oops, not quite. The correct answer is Dark Matter.";
+                }  else if (questionId === '5') {
+                    resultElement.textContent = "Oops! That's not correct. The correct answer is Elliptical.";
+            }
+            }
+            
+            // Disable all buttons and highlight the correct/incorrect answers
+            buttons.forEach((btn) => {
+                btn.disabled = true;
+                if (btn === button && !isCorrect) {
+                    btn.style.backgroundColor = "#ff6666"; // Highlight incorrect answer
+                } else if (isCorrect && btn === button) {
+                    btn.style.backgroundColor = "#19ae1e"; // Highlight correct answer
+                }
+            }); 
+        }
+
+    </script>
+</body>
+</html>

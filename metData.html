@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteorite Landings</title>
+    <link rel="stylesheet" href="metStyles.css">
+</head>
+<body>
+    <header>
+        <h1>Meteorite Landings Data Visualization</h1>
+    </header>
+
+    <main>
+        <section id="graphs-container">
+            <div class="graph">
+                <h2>Landings Over Time</h2>
+                <img src="landings_by_year.png" alt="Graph of meteorite landings by year">
+            </div>
+            <div class="graph">
+                <h2>Impact Locations</h2>
+                <iframe src="meteorite_map.html" title="Interactive map of meteorite landings" loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section id="explanation-section">
+            <h2>Data Processing Steps</h2>
+            <div class="step-container">
+                <div class="step">
+                    <img src="step1_raw_data.png" alt="Raw meteorite data visualization">
+                    <p>1. Loaded and combined meteorite landing data from CSV files, removed duplicates, and filtered missing values.</p>
+                </div>
+                <div class="arrow">&rarr;</div>
+                <div class="step">
+                    <img src="step2_trend_analysis.png" alt="Trend analysis visualization">
+                    <p>2. Filtered data for years after 1800 and analyzed trends in the number of meteorite landings over time.</p>
+                </div>
+                <div class="arrow">&rarr;</div>
+                <div class="step">
+                    <img src="step3Map.png" alt="Interactive map visualization">
+                    <p>3. Created a map displaying locations using folium.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meteorite Data Project</p>
+    </footer>
+</body>
+</html>

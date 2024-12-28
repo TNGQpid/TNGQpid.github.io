@@ -24,7 +24,7 @@
             .catch(error => console.error("Error loading JSON:", error));
 
         // Step 2: Load and process the CSV data using PapaParse
-        Papa.parse('https://TNGQpid.github.io/meteorite_data.csv', {
+        Papa.parse('https://tngpid.github.io/meteorite_data.csv', {
             download: true,
             header: true,
             dynamicTyping: true,
@@ -36,15 +36,22 @@
             }
         });
 
-        // Data Cleaning Function (removes missing/invalid data and converts types)
+        // Updated Data Cleaning Function
         function cleanData(data) {
             return data.filter(item => {
-                return item.mass_g && item.year && item.longitude && item.latitude;
+                // Check that all required fields exist and have valid values
+                return (
+                    item.mass_g !== undefined && !isNaN(parseFloat(item.mass_g)) &&
+                    item.year !== undefined && !isNaN(parseInt(item.year)) &&
+                    item.longitude !== undefined && !isNaN(parseFloat(item.longitude)) &&
+                    item.latitude !== undefined && !isNaN(parseFloat(item.latitude))
+                );
             }).map(item => {
+                // Convert fields to appropriate data types
                 return {
                     ...item,
-                    mass_g: parseFloat(item.mass_g), // Ensure mass is a float
-                    year: parseInt(item.year), // Ensure year is an integer
+                    mass_g: parseFloat(item.mass_g),
+                    year: parseInt(item.year),
                     longitude: parseFloat(item.longitude),
                     latitude: parseFloat(item.latitude)
                 };

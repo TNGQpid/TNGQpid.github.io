@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonar Signal Classification</title>
+  <link rel="stylesheet" href="deepSeaS.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Sonar Signal Classification</h1>
+      <p>Exploring underwater signals with neural networks</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro">
+      <div class="container">
+        <h2>Introduction</h2>
+        <p>The goal of this project is to classify sonar signals as either rocks or mines using a neural network. <br>
+          This webpage provides an overview of the dataset, preprocessing steps, model architecture, training, and evaluation results.</p>
+      </div>
+    </section>
+
+    <section class="data">
+      <div class="container">
+        <h2>Data Preprocessing</h2>
+        <p>The dataset consists of 60 numerical features and labels ('Rock' or 'Mine'). Below are the first few rows of the dataset:</p>
+        <div class="data-table">
+          <!-- Placeholder for the dataset table -->
+          <table>
+            <tr><th>Feature_1</th><th>Feature_2</th><th>...</th><th>Label</th></tr>
+            <tr><td>0.02</td><td>0.03</td><td>...</td><td>Rock</td></tr>
+            <tr><td>0.15</td><td>0.22</td><td>...</td><td>Mine</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="model">
+        <div class="container">
+          <h2>Data Visualization</h2>
+          <p>A 3-dimenisonal version of the 60-dimensional data is shown using Princple Component Analysis, a technique used to reduce dimensionality.</p>
+          <div class="model-diagram">
+            <!-- Placeholder for the model diagram -->
+            <img src="images/pca.svg" alt="Data Vis">
+          </div>
+        </div>
+      </section>
+
+    <section class="model">
+      <div class="container">
+        <h2>Model Overview</h2>
+        <p>The neural network is composed of an input layer, a hidden layer with 32 nodes, and an output layer. Below is a diagram of the architecture:</p>
+        <div class="model-diagram">
+          <!-- Placeholder for the model diagram -->
+          <img src="images/nna.png" alt="Model Architecture">
+        </div>
+      </div>
+      <div class = "container-lower">
+         <p>Inside the hidden layer, the darker colored boxes represent the activation function used, which is the Rectified Linear Unit (ReLU) function. <br>
+          The output layer uses the Sigmoid activation function to produce a probability value between 0 and 1. <br> </p>
+          <div class = "separator"></div>
+         <p>An activation function takes in a value and non-linearly transforms it to a desired range, usually between [-1, 1] or 0 and 1. <br>
+          Neural Networks work by combining connections between nodes, where each connection has a weight associated with it. <br> </p>
+          <div class = "separator"></div>
+         <p>After running cycles of training (epochs), the model learns to make accurate predictions by adjusting the weights to minimize the loss function. <br>
+          This, combined with the nonlinearlity of activation functions, are what make neural networks so powerful.
+         </p>
+      </div>
+    </section>
+
+    <section class="training">
+      <div class="container">
+        <h2>Training and Loss Curves</h2>
+        <p>The model was trained for 50 epochs, with loss curves for training and test datasets shown below:</p>
+        <div class="training-graph">
+          <!-- Placeholder for loss curves -->
+          <img src="images/loss_curves.png" alt="Loss Curves">
+        </div>
+        <p>The model steadily gets better overtime, but doesn't overfit the training data.</p>
+      </div>
+    </section>
+
+    <section class="evaluation">
+      <div class="container">
+        <h2>Evaluation</h2>
+        <p>The confusion matrix and classification report provide insights into model performance:</p>
+        <div class="confusion-matrix">
+          <!-- Placeholder for confusion matrix -->
+          <img src="images/Confusion_matrix_C.png" alt="Confusion Matrix">
+        </div>
+      </div>
+      <div class = "container-lower">
+        <p>The confusion matrix can be hard to understand at first glance, but the idea is simple. <br> 
+          Looking at the top right box (white), this cell tells us that the model thought 1 object was a mine when it was actually a rock. <br>
+          The bottom right box (normal blue) tells us that the model correctly predicted 15 objects that were mines as mines. <br>
+          Similarily, the top left box (dark blue) tells us that the model correctly predicted 21 objects that were rocks as rocks. <br>
+          The bottom left box (very light blue) tells us that the model thought 5 objects were rocks when they actually were mines. <br>
+         </p>
+      </div>
+    </section>
+
+    <section class = "evaluation">
+        <div class="container-lower">
+          <!-- Placeholder for classification report -->
+          <h2>Classification Report:</h2>
+          <pre>
+                    Precision  Recall  F1-Score  Support
+            Rock      0.95    0.90      0.93      50
+            Mine      0.92    0.96      0.94      50
+          </pre>
+          <p>The classification report is a more human-readable version of the confusion matrix. <br>
+            It provides metrics such as precision, recall, and F1-score for each class. <br> </p>
+            <div class = "separator"></div>
+          <p>Precision is the ratio of correctly predicted positive observations to the total predicted positives. <br>
+            Recall is the ratio of correctly predicted positive observations to all actual positives. <br>
+            F1-score is the weighted average of precision and recall. <br> </p>
+        </div>
+    </section>
+
+    <section class="conclusion">
+      <div class="container-lower">
+        <h2>Conclusion</h2>
+        <p>This project aimed to educate the general audience about neural networks for (binary) classification while demonstrating the effectiveness of a simple neural network in classifying sonar signals. <br>
+          As is shown through the training loss graph, the model steadily improves over time, and the confusion matrix and classification report show that the model performs well on the test data. <br>
+          This means that the model is able to generalize well to unseen data, which is a key goal in machine learning. <br>
+          Future work could involve exploring more advanced models, more advanced tasks, or additional feature engineering.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Sonar Signal Analysis</p>
+    </div>
+  </footer>
+</body>
+</html>

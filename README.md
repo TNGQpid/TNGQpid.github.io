@@ -3,7 +3,7 @@
 This repository features all of the files, images, scripts, and code used for the making of my website hosted by Github. 
 
 The website works through a combination of HTML, CSS, and Javascript. The central/home/index page is in `index.html`, which features about me, contact, portfolio, and blog sections. 
-Within the home/index page are links to other portions of the website, such as a quiz about basic astrophysics topics that I coded/made, and a link to a data analysis page of meteorites around the world. 
+Within the home/index page are links to other portions of the website, such as a quiz about basic astrophysics topics that I coded/made, link to a data analysis page of meteorites around the world, and a webpage about classifying Sonar signals as rocks (R) or mines (M) with neural networks. 
 All the pages have been updated with custom visuals, some of them being animations, that make each page conform to a relevant theme that relates to the corresponding topic.
 
 This website is constantly being updated and you can expect new content at any time!

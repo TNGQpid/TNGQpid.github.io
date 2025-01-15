@@ -1,0 +1,94 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background: #001f3f; /* Deep sea background color */
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .container-lower {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  h1, h2, h3 {
+    text-align: center;
+    color: #00c0ff; /* Bright aqua for headings */
+  }
+  
+  p {
+    color: #d9faff;
+  }
+  
+  /* Header section */
+  .hero {
+    background: linear-gradient(135deg, #004080, #0077be);
+    padding: 2rem 0;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  /* Section styles */
+  section {
+    padding: 2rem 0;
+  }
+  
+  section:nth-child(even) {
+    background: #002d4f; /* Alternating background colors */
+  }
+  
+  .data-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .data-table th, .data-table td {
+    border: 1px solid #00c0ff;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  /* Model diagram and graphs */
+  img {
+    max-width: 100%;
+    display: block;
+    margin: 1rem auto;
+  }
+  
+  /* Footer */
+  footer {
+    background: #001f3f;
+    text-align: center;
+    padding: 1rem;
+    border-top: 2px solid #00c0ff;
+  }
+  
+  footer p {
+    margin: 0;
+    color: #d9faff;
+  }
+
+  .separator {
+    width: 100%;
+    height: 2px;
+    background-color: #5e3bb8;
+    margin: 20px 0;
+}
+
+  
